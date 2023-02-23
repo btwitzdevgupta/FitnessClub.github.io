@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "ViewResponse";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+
+@using System.Data;
+@using System.Data.SqlClient;
+@using FitnessClub.Models;
+
+<h2 class="text text-center">ViewResponse</h2>
+<hr />
+<div class="col-sm-12">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>ID</th>
+                    <th>Complain</th>
+                    <th>Response</th>
+                    <th>CDate</th>
+                    <th>RDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    DBmanager db = new DBmanager();
+                    string cmd = "select * from fc_complain c inner join fc_response r on c.cid=r.uid";
+                    DataTable dt = db.GetAllRecords(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @dt.Rows[i]["cid"]
+                                </td>
+                                <td>@dt.Rows[i]["uid"]</td>
+                                <td>@dt.Rows[i]["complain"]</td>
+                                <td>@dt.Rows[i]["rmsg"]</td>
+                                <td>@dt.Rows[i]["cdate"]</td>
+                                <td>@dt.Rows[i]["rdt"]</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

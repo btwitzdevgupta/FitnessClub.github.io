@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/GeneralMaster.cshtml";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Style the input container */
+    .input-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Style the form icons */
+   
+    
+    .icon {
+        padding: 10px;
+        background: orange;
+        color: white;
+        min-width: 50px;
+        text-align: center;
+    }
+
+    /* Style the input fields */
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        color:black;
+    }
+
+        .input-field:focus {
+            border: 2px solid dodgerblue;
+        }
+
+    /* Set a style for the submit button */
+    .btn {
+        background-color: orange;
+        color: black;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+        .btn:hover {
+            opacity: 1;
+        }
+</style>
+<center>
+    <div class="col-sm-12">
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-10" style="width:80%">
+            <h2 style="color:orange; align-items:center;">Registration Form</h2>
+            <form action="/Home/Registration" method="post" enctype="multipart/form-data">
+
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input class="input-field" type="text" placeholder="Username" name="uname">
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Email" name="uemail">
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input class="input-field" type="password" placeholder="Password" name="upsd">
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+</center>
